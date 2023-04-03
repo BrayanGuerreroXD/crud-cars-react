@@ -1,4 +1,5 @@
 import React from "react";
+import addCar from "../api/addCar";
 import { useState } from "react";
 
 function Form() {
@@ -11,6 +12,8 @@ function Form() {
     setCarName(event.target.value);
     setCarBadge(event.target.value);
     setMotorSerial(event.target.value);
+
+    addCar(carName, carBadge, motorSerial);
   };
 
   return (
