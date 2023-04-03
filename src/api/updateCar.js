@@ -1,4 +1,4 @@
-const updateCar = async (id, car) => {
+const updateCar = async (id, car)=> {
   try {
     const response = await fetch(`http://localhost:3000/api/cars/${id}`, {
       method: "PATCH",
