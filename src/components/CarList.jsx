@@ -6,6 +6,7 @@ function CarList({cars}) {
 
   const handleDelete = (id) => {
     deleteCar(id);
+    location.reload();
     console.log("Delete car successfully");
   };
 

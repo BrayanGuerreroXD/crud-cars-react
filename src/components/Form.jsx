@@ -8,11 +8,11 @@ function Form() {
   const [motorSerial, setMotorSerial] = useState("");
 
   const handleInputChange = async (event) => {
-    event.preventDefault();
     await addCar(carName, carBadge, motorSerial);
     setCarName("");
     setCarBadge("");
     setMotorSerial("");
+    location.reload();
   };
 
   return (
