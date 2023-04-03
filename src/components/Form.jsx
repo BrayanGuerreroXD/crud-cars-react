@@ -17,7 +17,7 @@ function Form() {
 
   return (
     <div className="container">
-      <h3>Add a new car</h3>
+      <h5>Add a new car</h5>
       <div class="mb-3">
         <input
           type="text"
@@ -25,7 +25,7 @@ function Form() {
           id="car-name"
           value={carName}
           onChange={(e) => setCarName(e.target.value)}
-          placeholder="Enter Car Name"
+          placeholder="Car Name"
         />
       </div>
 
@@ -36,7 +36,7 @@ function Form() {
           id="car-badge"
           value={carBadge}
           onChange={(e) => setCarBadge(e.target.value)}
-          placeholder="Enter Car Badge"
+          placeholder="Car Badge"
         />
       </div>
 
@@ -47,7 +47,7 @@ function Form() {
           id="motor-serial"
           value={motorSerial}
           onChange={(e) => setMotorSerial(e.target.value)}
-          placeholder="Enter Motor Serial"
+          placeholder="Motor Serial"
         />
       </div>
 
