@@ -1,8 +1,9 @@
 import React from "react";
-import updateCar from "../api/updateCar";
+import { useNavigate } from "react-router-dom";
 import deleteCar from "../api/deleteCar";
 
-function CarList({cars}) {
+function CarList({ cars }) {
+  const navigate = useNavigate();
 
   const handleDelete = (id) => {
     deleteCar(id);
@@ -10,14 +11,8 @@ function CarList({cars}) {
     console.log("Delete car successfully");
   };
 
-  const handleEdit = async (id) => {
-    const car = {
-      name: "Nuevo nombre",
-      badge: "Nuevo badge",
-      motor_serial: "Nuevo motor_serial",
-    };
-    const updatedCar = await updateCarById(id, car);
-    console.log(updatedCar); // Objeto JSON actualizado
+  const handleEdit = (id) => {
+    navigate(`/edit/${id}`); // Navigate to EditCar with the corresponding ID
   };
 
   return (
