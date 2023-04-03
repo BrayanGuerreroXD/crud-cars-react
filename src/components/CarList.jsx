@@ -1,25 +1,23 @@
 import React from "react";
-import getCars from "../api/getCars";
-import { useState, useEffect } from "react";
+import updateCar from "../api/updateCar";
+import deleteCar from "../api/deleteCar";
 
-const handleDelete = (id) => {
-  console.log("Delete");
-};
+function CarList({cars}) {
 
-const handleEdit = (id) => {
-  console.log("Edit");
-};
+  const handleDelete = (id) => {
+    deleteCar(id);
+    console.log("Delete car successfully");
+  };
 
-function CarList() {
-    const [cars, setCars] = useState([]);
-
-    useEffect(() => {
-        async function fetchData() {
-          const data = await getCars();
-          setCars(data);
-        }
-        fetchData();
-      }, []);
+  const handleEdit = async (id) => {
+    const car = {
+      name: "Nuevo nombre",
+      badge: "Nuevo badge",
+      motor_serial: "Nuevo motor_serial",
+    };
+    const updatedCar = await updateCarById(id, car);
+    console.log(updatedCar); // Objeto JSON actualizado
+  };
 
   return (
     <div className="container">
@@ -39,8 +37,18 @@ function CarList() {
               <td>{item.badge}</td>
               <td>{item.motor_serial}</td>
               <td>
-                <button className="btn btn-success" onClick={handleEdit(item.id)}>Edit</button>
-                <button className="btn btn-danger" onClick={handleDelete(item.id)}>Delete</button>
+                <button
+                  className="btn btn-success"
+                  onClick={() => handleEdit(item.id)}
+                >
+                  Edit
+                </button>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleDelete(item.id)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
